@@ -53,7 +53,84 @@ and the result will apear :
 
 ################################## todo.sh ##################################
 
+Data Storage
+File-Based Storage: The program uses a plain text file, tasks.txt, to store task data. Each task is stored on a new line in the file with fields separated by a consistent delimiter (spaces in this case). This choice makes the program simple and portable, as it does not rely on external databases.
+Fields: Each task entry in the file includes:
+ID: A unique identifier for each task.
+Title: The name of the task.
+Description: A detailed description of the task.
+Location: Where the task needs to be performed.
+Due Date: When the task is due, in YYYY-MM-DD format.
+Completion Status: Whether the task is completed or not, stored as "terminée" or "non terminée".
+Code Organization
+Modular Functions: Each primary operation (create, update, delete, view task information, list tasks, and search tasks) is encapsulated in its own function. This modular approach improves readability and maintainability.
+Main Execution Flow: The main part of the script uses a case statement to determine which function to execute based on the command-line argument provided. This design allows the script to handle various user commands efficiently.
+Input Validation: The script includes input validation for critical fields like the task title and due date to ensure data integrity.
+User Interaction: Prompts and messages to the user are in French, making the script suitable for French-speaking users.
+How to Run the Program
+Prerequisites
+Bash Shell: Ensure you are using a Unix-like system with a Bash shell available.
+Permissions: Make sure the script has executable permissions. You can set this with the following command:
+sh
+Copy code
+chmod +x todo.sh
+Usage
+Help: Display usage information.
 
+sh
+Copy code
+./todo.sh --help
+Create a Task: Start the process to create a new task.
 
+sh
+Copy code
+./todo.sh create
+Update a Task: Update details of an existing task by its ID.
 
+sh
+Copy code
+./todo.sh update
+Delete a Task: Delete a task by its ID.
 
+sh
+Copy code
+./todo.sh delete
+View Task Information: View the details of a specific task by its ID.
+
+sh
+Copy code
+./todo.sh info
+List Tasks for a Given Day: List tasks for a specific date, showing completed and non-completed tasks.
+
+sh
+Copy code
+./todo.sh list
+Search Task by Title: Search for tasks by their title.
+
+sh
+Copy code
+./todo.sh search
+Example Workflow
+Create a Task:
+
+Run ./todo.sh create.
+Follow the prompts to enter the task details.
+List Today's Tasks:
+
+Simply run ./todo.sh without any arguments to list tasks for the current date.
+Update a Task:
+
+Run ./todo.sh update.
+Enter the task ID and the field you want to update along with the new value.
+Delete a Task:
+
+Run ./todo.sh delete.
+Enter the task ID to delete the task.
+View Task Information:
+
+Run ./todo.sh info.
+Enter the task ID to view its details.
+Search for a Task by Title:
+
+Run ./todo.sh search.
+Enter the title of the task to find matching tasks.
